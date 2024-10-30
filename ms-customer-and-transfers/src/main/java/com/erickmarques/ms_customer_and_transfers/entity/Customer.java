@@ -24,12 +24,15 @@ public class Customer {
     @Column(name = "full_name", nullable = false)
     private String fullName;
 
+    @CPF
     @Column(name = "cpf", unique = true, nullable = false)
     private String cpf;
 
+    @CNPJ
     @Column(name = "cnpj", unique = true, nullable = false)
     private String cnpj;
 
+    @Email
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
