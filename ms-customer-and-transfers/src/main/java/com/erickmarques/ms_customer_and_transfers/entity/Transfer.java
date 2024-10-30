@@ -21,12 +21,12 @@ public class Transfer extends AuditableEntity {
     private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "account_sender_id", nullable = false)
-    private Account sender;
+    @JoinColumn(name = "account_payeer_id", nullable = false)
+    private Account accountPayeer;
 
     @ManyToOne
-    @JoinColumn(name = "account_receiver_id", nullable = false)
-    private Account receiver;
+    @JoinColumn(name = "account_payee_id", nullable = false)
+    private Account accountPayee;
 
     @Column(name = "amount", nullable = false, precision = 15, scale = 2)
     private BigDecimal amount;
