@@ -29,11 +29,11 @@ public class Customer {
     private String fullName;
 
     @CPF
-    @Column(name = "cpf", unique = true, nullable = false)
+    @Column(name = "cpf", unique = true)
     private String cpf;
 
     @CNPJ
-    @Column(name = "cnpj", unique = true, nullable = false)
+    @Column(name = "cnpj", unique = true)
     private String cnpj;
 
     @Email
@@ -44,7 +44,7 @@ public class Customer {
     private String password;
 
     @Column(name = "balance", nullable = false)
-    private BigDecimal balance = BigDecimal.ZERO;
+    private BigDecimal balance;
 
     @ManyToOne
     @JoinColumn(name = "customer_type_id", nullable = false)
