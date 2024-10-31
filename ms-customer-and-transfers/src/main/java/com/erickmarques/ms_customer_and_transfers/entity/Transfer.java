@@ -3,6 +3,7 @@ package com.erickmarques.ms_customer_and_transfers.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "transferencias")
 @Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Transfer extends AuditableEntity {
@@ -22,11 +24,11 @@ public class Transfer extends AuditableEntity {
 
     @ManyToOne
     @JoinColumn(name = "account_payeer_id", nullable = false)
-    private Account accountPayeer;
+    private Customer payer;
 
     @ManyToOne
     @JoinColumn(name = "account_payee_id", nullable = false)
-    private Account accountPayee;
+    private Customer payee;
 
     @Column(name = "amount", nullable = false, precision = 15, scale = 2)
     private BigDecimal amount;

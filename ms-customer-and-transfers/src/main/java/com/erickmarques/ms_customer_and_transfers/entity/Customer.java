@@ -4,14 +4,18 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CNPJ;
 import org.hibernate.validator.constraints.br.CPF;
+
+import java.math.BigDecimal;
 
 
 @Entity
 @Table(name = "clientes")
 @Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
@@ -38,6 +42,9 @@ public class Customer {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "balance", nullable = false)
+    private BigDecimal balance = BigDecimal.ZERO;
 
     @ManyToOne
     @JoinColumn(name = "customer_type_id", nullable = false)
